@@ -1,0 +1,4 @@
+cd domains/0km.app/public_html
+lcd D:\0km.app
+get -r *
+bye
