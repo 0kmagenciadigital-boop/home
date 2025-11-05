@@ -1,11 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<link rel="icon" type="image/png" href="/logo-0km.png" />
 		<meta name="generator" content="Hostinger Horizons" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Hostinger Horizons</title>
+		<meta name="description" content="0KM Agencia Digital - Transformamos tu marca con soluciones digitales innovadoras" />
+		<title>0KM - Agencia Digital Creativa</title>
+		<style>
+			.logo-header {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				object-fit: cover;
+			}
+		</style>
 		<script type="module" crossorigin src="/assets/index-2356972d.js"></script>
 		<link rel="stylesheet" href="/assets/index-f7ea9f0e.css">
 		<script type="module">
@@ -103,7 +112,7 @@ const originalFetch = window.fetch;
 window.fetch = function(...args) {
 	const url = args[0] instanceof Request ? args[0].url : args[0];
 
-	// Skip WebSocket URLs
+	// Omitir URLs de WebSocket
 	if (url.startsWith('ws:') || url.startsWith('wss:')) {
 		return originalFetch.apply(this, args);
 	}
@@ -112,7 +121,7 @@ window.fetch = function(...args) {
 		.then(async response => {
 			const contentType = response.headers.get('Content-Type') || '';
 
-			// Exclude HTML document responses
+			// Excluir respuestas de documentos HTML
 			const isDocumentResponse =
 				contentType.includes('text/html') ||
 				contentType.includes('application/xhtml+xml');
@@ -161,7 +170,20 @@ if (window.navigation && window.self !== window.top) {
 </script>
 	</head>
 	<body>
+		<!-- Logo 0KM -->
+		<div id="logo-container" style="position: fixed; top: 50px; left: 50%; transform: translateX(-50%); z-index: 9999; display: none;">
+			<img src="/logo-0km.png" alt="0KM Logo" style="width: 140px; height: 140px; border-radius: 60%; object-fit: cover; box-shadow: 0 6px 12px rgba(0,0,0,0.4);">
+		</div>
 		<div id="root"></div>
+		<script>
+			// Mostrar logo después de que React cargue
+			window.addEventListener('DOMContentLoaded', function() {
+				setTimeout(function() {
+					var logoContainer = document.getElementById('logo-container');
+					if (logoContainer) logoContainer.style.display = 'block';
+				}, 500);
+			});
+		</script>
 		
 	</body>
 </html>
