@@ -1,5 +1,0 @@
-cd domains/0km.app/public_html
-put index.html
-put logo-0km.png
-put -r assets
-bye
